@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
-import { API_ACCESS_TOKEN, BASE_URL, endPoints } from '../config/endpoints';
+import { BASE_URL, endPoints } from '../config/endpoints';
+import { fetcher } from '../config/fetcher';
 import SwiperCore, { Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import SlideSkeleton from './SlideSkeleton';
 
 interface SlideData {
   backdrop_path: string;
@@ -19,16 +21,7 @@ const Slide = () => {
   SwiperCore.use([Autoplay]);
 
   async function fetchData() {
-    const request = await fetch(
-      `${BASE_URL}${endPoints.fetchNetflixOriginals}${1}`,
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${API_ACCESS_TOKEN}`,
-        },
-      },
-    ).then((res) => res.json());
+    const request = await fetcher(`${BASE_URL}${endPoints.fetchNetflixOriginals}${1}`)
     setMovies(request.results);
   }
 
@@ -64,7 +57,7 @@ const Slide = () => {
         disableOnInteraction: false,
       }}
     >
-      {slideData.map((item: SlideData, index: number) => (
+      {slideData.length ? slideData.map((item: SlideData, index: number) => (
         <SwiperSlide key={index}>
           <section className="relative h-[100vh]">
             <div
@@ -98,7 +91,7 @@ const Slide = () => {
             </div>
           </section>
         </SwiperSlide>
-      ))}
+      )): <SlideSkeleton />}
     </Swiper>
   );
 };

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { API_ACCESS_TOKEN, BASE_URL, endPoints } from '../config/fetcher';
+import { API_ACCESS_TOKEN, BASE_URL, endPoints } from '../config/endpoints';
 import SwiperCore, { Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';

@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from 'react';
-import { API_ACCESS_TOKEN, BASE_URL, endPoints } from './config/fetcher';
+import { API_ACCESS_TOKEN, BASE_URL, endPoints } from './config/endpoints';
 import Navbar from './components/Navbar';
 import Slide from './components/Slide';
 import List from './components/List';

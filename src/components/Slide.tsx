@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { API_ACCESS_TOKEN, BASE_URL, endPoints } from '../config/fetcher';
+import SwiperCore, { Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import 'swiper/css/scrollbar';
 
 interface SlideData {
   backdrop_path: string;
@@ -15,6 +15,8 @@ interface SlideData {
 const Slide = () => {
   const [movies, setMovies] = useState<any>([]);
   const [slideData, setSlideData] = useState<Array<SlideData>>([]);
+
+  SwiperCore.use([Autoplay]);
 
   async function fetchData() {
     const request = await fetch(
@@ -55,8 +57,12 @@ const Slide = () => {
 
   return (
     <Swiper
-      grabCursor={true}
+      modules={[Autoplay]}
       loop={true}
+      autoplay={{
+        delay: 4000,
+        disableOnInteraction: false,
+      }}
     >
       {slideData.map((item: SlideData, index: number) => (
         <SwiperSlide key={index}>

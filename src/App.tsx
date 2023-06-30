@@ -45,8 +45,14 @@ function App() {
       <Navbar />
       <Slide />
       <div className="mx-4 sm:mx-16 pb-2 sm:pb-4">
-        <List movies={actionMovies} title="Action Movies" />
-        <List movies={comedyMovies} title="Comedy Movies" />
+        <List
+          movies={actionMovies}
+          title="Action Movies"
+        />
+        <List
+          movies={comedyMovies}
+          title="Comedy Movies"
+        />
       </div>
     </Fragment>
   );

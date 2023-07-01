@@ -42,9 +42,7 @@ const List: FC<ListProps> = ({ movies, title }) => {
           flex flex-row items-center justify-center
           "
               >
-                <Link
-                  to={`/movie/${movie.id}`}
-                >
+                <Link to={`/movie/${movie.id}`}>
                   <button className="bg-zinc-700 text-white text-sm font-semibold px-4 py-2 rounded-md mt-2">
                     Watch
                   </button>

@@ -32,7 +32,11 @@ const Movie = () => {
           <div
             className="w-full h-[100vh] bg-cover bg-center brightness-50 object-cover transition duration-500"
             style={{
-              backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie?.belongs_to_collection?.backdrop_path || movie?.backdrop_path || movie?.poster_path})`,
+              backgroundImage: `url(https://image.tmdb.org/t/p/original/${
+                movie?.belongs_to_collection?.backdrop_path ||
+                movie?.backdrop_path ||
+                movie?.poster_path
+              })`,
             }}
           />
           <div className="absolute top-1/3 ml-4 md:ml-16 sm:w-1/2 left-0">
@@ -118,9 +122,11 @@ const Movie = () => {
       </section>
     );
   } else {
-    return <section className="relative h-[100vh]">
-    <div className="animate-pulse bg-gray-800 h-[100vh] w-full" />
-  </section>
+    return (
+      <section className="relative h-[100vh]">
+        <div className="animate-pulse bg-gray-800 h-[100vh] w-full" />
+      </section>
+    );
   }
 };
 

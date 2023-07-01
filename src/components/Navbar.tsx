@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
 
 const navbarItems = [
@@ -61,17 +62,21 @@ const Navbar = () => {
       >
         <ul className="list-none text-white hidden lg:flex flex-row gap-7">
           {navbarItems.map((item) => (
-            <li
-              className={`${
-                isActive == 4
-                  ? 'text-white cursor-default'
-                  : 'text-gray-200 cursor-pointer transition hover:text-gray-300'
-              }`}
-              onClick={() => handleIsActive(4)}
-              key={item.id}
+            <Link
+              to="/"
+              key={item.id + 1}
             >
-              {item.name}
-            </li>
+              <li
+                className={`${
+                  isActive == item.id
+                    ? 'text-white cursor-default'
+                    : 'text-gray-200 cursor-pointer transition hover:text-gray-300'
+                }`}
+                onClick={() => handleIsActive(item.id)}
+              >
+                {item.name}
+              </li>
+            </Link>
           ))}
         </ul>
         <ul className="list-none text-white flex lg:hidden flex-row gap-7">
@@ -89,17 +94,21 @@ const Navbar = () => {
             }`}
           >
             {navbarItems.map((item) => (
-              <li
-                className={`${
-                  isActive == 4
-                    ? 'text-white underline'
-                    : 'text-gray-200 transition hover:underline'
-                }`}
-                onClick={() => handleIsActive(4)}
-                key={item.id}
+              <Link
+                to="/"
+                key={item.id + 1}
               >
-                {item.name}
-              </li>
+                <li
+                  className={`${
+                    isActive == item.id
+                      ? 'text-white underline'
+                      : 'text-gray-200 transition hover:underline'
+                  }`}
+                  onClick={() => handleIsActive(item.id)}
+                >
+                  {item.name}
+                </li>
+              </Link>
             ))}
           </div>
         </ul>

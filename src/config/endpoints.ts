@@ -8,6 +8,7 @@ const endPoints = {
   fetchTopRated: `/movie/top_rated?language=en-US&page=`,
   fetchActionMovies: `/discover/movie?with_genres=28&language=en-US&page=`,
   fetchComedyMovies: `/discover/movie?with_genres=35&language=en-US&page=`,
+  fetchMovieDetail: (id: string) => `/movie/${id}?language=en-US`,
 };
 
 export { API_ACCESS_TOKEN, BASE_URL, endPoints };

@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 
 interface ListProps {
   movies: any[];
@@ -41,9 +42,14 @@ const List: FC<ListProps> = ({ movies, title }) => {
           flex flex-row items-center justify-center
           "
               >
-                <button className="bg-zinc-700 text-white text-sm font-semibold px-4 py-2 rounded-md mt-2">
-                  Watch
-                </button>
+                <Link
+                  to={`/movie/${movie.id}`}
+                  className="border-2"
+                >
+                  <button className="bg-zinc-700 text-white text-sm font-semibold px-4 py-2 rounded-md mt-2">
+                    Watch
+                  </button>
+                </Link>
                 <button className="bg-zinc-700 text-white text-sm font-semibold px-4 py-2 rounded-md mt-2 ml-2">
                   Add to list
                 </button>

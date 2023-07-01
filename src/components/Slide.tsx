@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import { BASE_URL, endPoints } from '../config/endpoints';
-import { fetcher } from '../config/fetcher';
 import SwiperCore, { Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
+import { Link } from 'react-router-dom';
+import { BASE_URL, endPoints } from '../config/endpoints';
+import { fetcher } from '../config/fetcher';
 import SlideSkeleton from './SlideSkeleton';
+import 'swiper/css';
 
 interface SlideData {
   backdrop_path: string;
@@ -77,12 +78,16 @@ const Slide = () => {
                   {item.overview}
                 </p>
                 <div className="flex flex-row items-center mt-4 sm:mt-6 gap-4">
-                  <button className="bg-white rounded-md py-1 sm:py-2 px-2 sm:px-3 text-xs lg:text-lg font-semibold hover:bg-neutral-300 transition capitalize">
-                    Play
-                  </button>
-                  <button className="capitalize bg-white text-white bg-opacity-30 rounded-md py-1 sm:py-2 px-2 sm:px-4 text-xs lg:text-lg font-semibold hover:bg-opacity-20 transition">
-                    More info
-                  </button>
+                  <Link to={`/movie/${item.id}`}>
+                    <button className="bg-white rounded-md py-1 sm:py-2 px-2 sm:px-3 text-xs lg:text-lg font-semibold hover:bg-neutral-300 transition capitalize">
+                      Play
+                    </button>
+                  </Link>
+                  <Link to={`/movie/${item.id}`}>
+                    <button className="capitalize bg-white text-white bg-opacity-30 rounded-md py-1 sm:py-2 px-2 sm:px-4 text-xs lg:text-lg font-semibold hover:bg-opacity-20 transition">
+                      More Info
+                    </button>
+                  </Link>
                 </div>
               </div>
               <div className="absolute hidden sm:flex top-1/3 right-0 mr-4 md:mr-16 w-2/12 rounded-md shadow-lg">

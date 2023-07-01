@@ -44,7 +44,6 @@ const List: FC<ListProps> = ({ movies, title }) => {
               >
                 <Link
                   to={`/movie/${movie.id}`}
-                  className="border-2"
                 >
                   <button className="bg-zinc-700 text-white text-sm font-semibold px-4 py-2 rounded-md mt-2">
                     Watch

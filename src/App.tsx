@@ -1,58 +1,27 @@
-import { Fragment, useEffect, useState } from 'react';
-import { BASE_URL, endPoints } from './config/endpoints';
-import { fetcher } from './config/fetcher';
-import Navbar from './components/Navbar';
-import Slide from './components/Slide';
-import List from './components/List';
-import ListSkeleton from './components/ListSkeleton';
-
-const arraySkeleton = new Array(9).fill(0);
+import { Fragment } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Layout from './pages/Layout';
+import Home from './pages/Home';
+import Movie from './pages/Movie';
 
 function App() {
-  const [actionMovies, setActionMovies] = useState<any>([]);
-  const [comedyMovies, setComedyMovies] = useState<any>([]);
-
-  useEffect(() => {
-    async function fetchActionData() {
-      const request = await fetcher(
-        `${BASE_URL}${endPoints.fetchActionMovies}${1}`,
-      );
-      setActionMovies(request.results);
-    }
-
-    async function fetchComedyData() {
-      const request = await fetcher(
-        `${BASE_URL}${endPoints.fetchComedyMovies}${1}`,
-      );
-      setComedyMovies(request.results);
-    }
-
-    fetchActionData();
-    fetchComedyData();
-  }, []);
-
   return (
     <Fragment>
-      <Navbar />
-      <Slide />
-      <div className="mx-4 sm:mx-16 pb-2 sm:pb-4">
-        {actionMovies.length ? (
-          <List
-            movies={actionMovies}
-            title="Action Movies"
+      <Routes>
+        <Route
+          path="/"
+          element={<Layout />}
+        >
+          <Route
+            index
+            element={<Home />}
           />
-        ) : (
-          <ListSkeleton arr={arraySkeleton} />
-        )}
-        {comedyMovies.length ? (
-          <List
-            movies={comedyMovies}
-            title="Comedy Movies"
+          <Route
+            path="movie/:id"
+            element={<Movie />}
           />
-        ) : (
-          <ListSkeleton arr={arraySkeleton} />
-        )}
-      </div>
+        </Route>
+      </Routes>
     </Fragment>
   );
 }

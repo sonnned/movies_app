@@ -1,6 +1,6 @@
 <h1 align="center">Movies APP</h1>
 <h2>Demo link</h2>
-<p>You can access the demo of this project <a href="" blank="_target">here</a></p>
+<p>You can access the demo of this project <a href="https://movies-app-nine-dusky.vercel.app/" blank="_target">here</a></p>
 <p>Also you can access to the repository of the project <a href="https://github.com/sonnned/movies_app" blank="_target">here</a></p>
 <h2>Description</h2>
 <p>This project is a simple app that shows a list of movies and their details</p>

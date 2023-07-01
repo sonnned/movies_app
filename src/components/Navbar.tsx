@@ -57,7 +57,7 @@ const Navbar = () => {
     <header className="fixed top-0 left-0 w-full z-40">
       <nav
         className={`flex flex-row items-center justify-between px-4 md:px-16 py-6 transition duration-500 ${
-          showBackground ? 'bg-gray-900' : ''
+          showBackground ? 'bg-black' : ''
         }`}
       >
         <ul className="list-none text-white hidden lg:flex flex-row gap-7">
